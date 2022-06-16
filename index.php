@@ -103,7 +103,7 @@
 
 // 9, Crear una función que dado un numero imprima solo los valores pares.
 
-    $aux = [];
+    /* $aux = [];
 
     $datos = [1,3,2,4,5,6,7,8,9,10];
 
@@ -111,7 +111,7 @@
         if($dato % 2 === 0) {
             $aux[] = $dato;
         };
-    };
+    }; */
 
     //print_r($aux);
 
@@ -119,11 +119,11 @@
 
     
 
-    function impares($array) {
+    /* function impares($array) {
         return ($array % 2);
     };
 
-    $datos = [1,3,2,4,5,6,7,8,9,10];
+    $datos = [1,3,2,4,5,6,7,8,9,10]; */
 
     //echo print_r(array_filter($datos, "impares"));
 
@@ -131,7 +131,7 @@
 
 // 11, Considerando las funciones de antes (pares e impares), crear una función que tenga como limite un numero dado n y como segundo parámetro un valor booleano que: si es true imprime los pares y si es false imprime los impares.
 
-    $max = intval(readline("Ingrese el número"));
+    /* $max = intval(readline("Ingrese el número"));
     $aux = [];
 
     for( $i = 0; $i <= $max; $i++) {
@@ -159,7 +159,7 @@
     
     print_r($aux);
 
-    filtro($aux,true);
+    filtro($aux,true); */
 
     
 
