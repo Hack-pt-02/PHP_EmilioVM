@@ -163,6 +163,186 @@
 
     
 
-// 12, 
+// 12, Reproducir ejercicio de la password.
+
+    
+    /* $input = readline("input the password: ");
+    $password = 1234;
+    do {
+        if($input != $password) {
+            $input = readline("try again: ");
+        };
+    } while ($input != $password);
+    echo "lo lograste!" */
+
+/* 13, Opcional hacer otro ejercicio de las compras: Crear una función que dado una cartera y un array de productos con (nombre y precio) devuelva un array (misma estructura) con solo los
+productos que se han podido comprar. 
+Ejemplo textual:
+cartera: 7
+Productos disponibles: pan, 2
+papas, 1
+cocacola,3
+agua, 2
+ */
+/* 
+$cartera = 10;
+
+$products = [
+    ["pan",2],
+    ["papas",1],
+    ["cocacola",4],
+    ["agua",10]
+];
+
+    function compra($prod,$cash) {
+        $resto = $cash;
+        $bag = [];
+        foreach($prod as $element) {
+            if($element[1] < $resto) {
+                $resto = $resto - $element[1];
+                $bag[] = $element;
+            }
+        }
+        return $bag;
+    }
+
+    $resultado = compra($products,$cartera);
+
+    print_r($resultado);
+ */
+
+
+/* FABRICA PERSONA */
+
+// 1, Crear una clase Persona que tenga propiedades públicas (nombre, apellido y edad). Crear 2 personas, Julia y Mario. Imprimir su información
+
+    class Persona {
+        public $nombre;
+        public $apellido;
+        public $edad;
+
+        function __construct($nombre, $apellido, $edad) 
+        {
+            $this -> nombre = $nombre;
+            $this -> apellido = $apellido;
+            $this -> edad = $edad;
+            Contador::veces();
+        }
+
+        function __toString() {
+            return "nombre: $this->nombre / apellido: $this->apellido / edad: $this->edad";
+        }
+
+        function saludar() {
+            return "hola $this->nombre. ¿Cómo estás?";
+        }
+
+        function trampaSaludar() {
+            return $this -> saludar();
+        }
+
+        // del ejercicio 7
+        final function comer() {
+            return "$this->nombre es un comilón.";
+        }
+    }
+    
+
+
+    $Julia = new Persona("Julia","Robers",18);
+    $Mario = new Persona("Super","Mario",26);
+
+    //echo $Mario;
+
+// 2, Modifico la visibilidad de las propiedades en la clase Persona, cambiandolas a private. Imprimimos sin error(mapeamos).
+
+    /* $mapeo = new Persona("ejemplo","de","mapeo");
+
+    echo $mapeo; */
+
+// 3, Crear una función saludar y la llamo (primero pública y luego privada).
+
+    /* echo $Mario -> trampaSaludar(); */
+
+// 4, Crear dos subclases que extiendan de Persona, con propiedades y métodos: Estudiante y Docente.
+
+// ESTUDIANTE
+
+    class Estudiante extends Persona {
+        public $curso;
+        public $notas;
+
+        function __construct($curso,$notas,$nombre,$apellido,$edad) {
+            $this -> curso = $curso;
+            $this -> notas = $notas;
+            parent::__construct($nombre,$apellido,$edad);
+        }
+
+        function __toString() {
+            return "nombre: $this->nombre | apellido: $this->apellido | edad: $this->edad | curso: $this->curso | notas: $this->notas";
+        }
+
+        function saludar() {
+            return parent::saludar();
+        }
+    }
+
+    $estudiante = new Estudiante(3,10,"Emilio","Vargas",26);
+
+    //echo $estudiante->saludar();
+
+    //echo $estudiante;
+
+// DOCENTE
+
+    class Docente extends Persona {
+        public $asignaturas;
+        public $horarios;
+
+        function __construct($asignaturas,$horarios,$nombre,$apellido,$edad) {
+            $this -> asignaturas = $asignaturas;
+            $this -> horarios = $horarios;
+            parent::__construct($nombre,$apellido,$edad);
+        }
+
+        function __toString() {
+            return "nombre: $this->nombre \n apellido: $this->apellido \n edad: $this->edad \n asignaturas: $this->asignaturas \n horarios: $this->horarios";
+        }
+
+        function nombre() {
+            return $this->nombre;
+        }
+
+        /*function comer() {
+            return "mi nombre es $this->nombre";
+        }*/
+    } 
+
+    $profesor = new Docente(implode(", ",["Matemáticas","Ciencias"]),"Mañanas","Bill","Gates",120);
+    $profesor2 = new Docente("Lengua","Tardes","Hilary","Clinton",75);
+
+    //echo $profesor->comer();
+
+
+// 6, Hacer un overrading del método saludar.
+    
+        /* Realizado en la línea 280 a Estudiante */
+    
+// 7, Crear una función en persona, por ejemplo (comer) que no se pueda sobreescribir en las clases hijas.
+
+        /* realizado en las lineas 244 y 315.*/
+
+// 8, Añadir un contador de objetos de clase Persona.
+
+class Contador {
+    static $contador = 0;
+        static function veces() {
+            Contador::$contador++;
+        }
+    }
+
+    echo Contador::$contador;
 
 ?>
+
+

@@ -1,25 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    class super {
+        public $producto;
+        public $precio;
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+        function __construct($producto, $precio) {
+            $this -> producto = $producto;
+            $this -> precio = $precio;
+        }
 
-<body>
-    <?php
-        $array = ["uno","dos","tres"];
-    ?>
-    <h1><?php echo "hola" ?></h1>
-    <ul>
-            <?php
-                foreach($array as $key) {
-                    echo "<li>$key</li>";
-                }
-            ?>
-    </ul>
-</body>
+        function __toString() {
+            return "producto: $this->producto, precio: $this->precio €";
+        }
+    }
 
-</html>
+    class algo {
+        public $nombre;
+        public $cost;
+        
+        function __construct($nombre, $cost) {
+            $this -> nombre = $nombre;
+            $this -> cost = $cost;
+            
+        }
+        
+    }
+    $alguien = new algo(readline("nombre del producto: "),readline("precio: "));
+
+    function permitir($alguien) {
+        $name = $alguien -> nombre;
+        $price = $alguien -> cost;
+        do {
+            $cash = readline("cuanto dinero tienes? ");
+        } while (!is_numeric($cash));
+        if ($cash >= $price) {
+            echo "te puedes comprar un $name";
+        } else {
+            echo "eres very pobre";
+        }
+    }
+
+    permitir($alguien);
+    
+    //print_r($alguien);
+
+    /* function realidad($wallet) {
+        $iphone = new super("iPhone 13",1500);
+        $tesla = new super("tesla model 3",50000);
+
+        echo $tesla -> precio;
+
+        if($wallet >= ($iphone -> precio + $tesla -> precio)) {
+            $estatus =  "somos ricos!";
+        } else {
+            $estatus = "ESTAMOS POBRES :(";
+        }
+        return $estatus;
+    }
+    
+    echo realidad(52000) */
+
+    
+
+
+
+
+?>
