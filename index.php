@@ -332,7 +332,11 @@ $products = [
 
         /* realizado en las lineas 244 y 315.*/
 
-// 8, Añadir un contador de objetos de clase Persona.
+// 8, FILOSOFAR, tiene sentido crear Personas?
+
+    /* No tiene sentido crear crear personas, porque son una plantilla de los rasgos comunes de las peronas, pero son las hijas las que se deben de crear partiendo de las propiedades principales del padre. */
+
+// 9, Añadir un contador de objetos de clase Persona.
 
 class Contador {
     static $contador = 0;
