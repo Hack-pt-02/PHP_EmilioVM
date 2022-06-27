@@ -287,7 +287,7 @@ $products = [
         }
     }
 
-    $estudiante = new Estudiante(3,10,"Emilio","Vargas",26);
+    //$estudiante = new Estudiante(3,10,"Emilio","Vargas",26);
 
     //echo $estudiante->saludar();
 
@@ -345,8 +345,55 @@ class Contador {
         }
     }
 
-    echo Contador::$contador;
+    //echo Contador::$contador;
 
-?>
+/* FÁBRICA IRON MAN */
+
+// 1, Crear vuestro propio Iron Man, siguiendo el modelo de lo hecho en clase.
+
+    abstract class ironMan {
+        public $name;
+        public $color;
+        function __construct($name,$color) {
+            $this->name = $name;
+            $this->color = $color;
+            Counts::count();
+        }
+
+        function __toString() {
+            return "nombre: $this->name color: $this->color";
+        }
+        abstract public function name();
+        abstract public function color();
+    }
+
+    class ironBlade extends ironMan {
+        function name() {
+            return "hola $this->name";
+        }
+
+        function color() {
+            return "eres de color $this->color";
+        }
+    }
+
+    
+    $obj = new ironBlade("Tony","red");
+    $obj2 = new ironBlade("Lucian","blue");
+    $obj3 = new ironBlade("Pavaroti","Brown");
+    
+    echo $obj."\n";
+
+    // contador de iromans
+    class Counts {
+        static $count = 0;
+    
+        static function count() {
+            Counts::$count++;
+        }
+    }
+
+    echo Counts::$count;
+    ?>
 
 
